@@ -1,0 +1,18 @@
+Answer for Question 1 of mySQL.
+
+show databases;
+source /usr/local/mysql-8.0.16-macos10.14-x86_64/world.sql;
+use world;
+show tables;
+select * from city;
+1. select * from city where CountryCode = 'IDN' limit 10;
+2. select * from city order by population desc limit 10;
+3. select Code,Name,Continent,Region,IndepYear from country where IndepYear IS NOT NULL order by IndepYear asc limit 10;
+4. select Continent, count(Continent) as jumlah_negara,sum(Population) as Population,avg(LifeExpectancy) as RataAngkaHarapanHidup from country where Population > 0 group by continent;
+5. select Name, Continent, LifeExpectancy, GNP from country where Continent ='Asia' AND LifeExpectancy > (select avg(LifeExpectancy) from country where Continent='Europe') order by LifeExpectancy desc;
+6. select countrylanguage.CountryCode, country.Name ,countrylanguage.Language, countrylanguage.IsOfficial, countrylanguage.Percentage from countrylanguage, country where countrylanguage.CountryCode = country.code and countrylanguage.Language = 'English' and countrylanguage.IsOfficial='T' order by Percentage desc limit 10;
+7. select country.Name, country.Population, country.GNP, city.Name, city.Population as capPopulation from country, city where country.Capital = city.ID and country.Region='Southeast Asia';
+8. select country.Name, country.Population, country.GNP, city.Name, city.Population as capPopulation from country, city where country.Capital = city.ID and country.Name in ('Argentina','Australia','Brazil','Canada','China','France','Germany','India','Indonesia','Japan','Mexico','Russian Federation','Saudi Arabia','South Africa','South Korea','Turkey','United Kingdom','United States');
+
+
+
